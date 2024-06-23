@@ -17,12 +17,23 @@ let favouritesData = [];
 function displayCharacter(objElement){
     let html = '';
 
-    html = `<li>
-                <div class = 'characterContainer js__characterContainer' data-id = '${objElement._id}'>
-                    <img src= '${objElement.imageUrl}' alt = 'Imagen de ${objElement.name}'>
-                    <p>${objElement.name}</p>
-                </div>                
-            </li>`
+    if(objElement.imageUrl !== undefined){
+        html = `<li>
+                    <div class = 'characterContainer js__characterContainer' data-id = '${objElement._id}'>
+                        <img src= '${objElement.imageUrl}' alt = 'Imagen de ${objElement.name}'>
+                        <p>${objElement.name}</p>
+                    </div>                
+                </li>`
+
+    } else {
+        html = `<li>
+                    <div class = 'characterContainer js__characterContainer' data-id = '${objElement._id}'>
+                        <img src= 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney' alt = 'Imagen de ${objElement.name}'>
+                        <p>${objElement.name}</p>
+                    </div>                
+                </li>`
+    }
+
     
     return html;
 }
@@ -70,10 +81,12 @@ function handleEachfavouriteCharacter(ev){
         favouritesData.push(favouriteObject);
         console.log(favouritesData);
     } else {
-        console.log('Mal');
+        favouritesData.splice(characterPosition, 1);
     }
     
     displayAllFavouriteCharacters(favouritesData);
+
+    ev.currentTarget.classList.toggle('selected');
 }
 
 
@@ -92,6 +105,21 @@ fetch('https://api.disneyapi.dev/character?pageSize=50')
 
     displayAllCharacter(charactersData);
 });
+
+
+characterBtn.addEventListener('click', filterCharacter);
+
+function filterCharacter(){
+    const characterName = characterInput.value;
+    
+    fetch(`https://api.disneyapi.dev/character?pageSize=50&name=${characterName}`)
+        .then((response) => response.json())
+        .then((data) => {
+            charactersData = data.data;
+
+        displayAllCharacter(charactersData);
+});
+}
 
 
 
