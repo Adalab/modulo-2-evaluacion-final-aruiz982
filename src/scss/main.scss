@@ -1,7 +1,20 @@
 @import 'core/variables';
 @import 'core/reset';
+@import 'layout/header';
+@import 'layout/searchBox';
 
 
 .selected{
     background-color: aqua;
 }
+
+.sectionWrap{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.charactersSection{
+    width: 70%;
+}
+
