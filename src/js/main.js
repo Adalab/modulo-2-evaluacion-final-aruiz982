@@ -20,16 +20,40 @@ function displayCharacter(objElement){
     if(objElement.imageUrl !== undefined){
         html = `<li>
                     <div class = 'characterContainer js__characterContainer' data-id = '${objElement._id}'>
-                        <img src= '${objElement.imageUrl}' alt = 'Imagen de ${objElement.name}'>
-                        <p>${objElement.name}</p>
+                        <img class = 'characterImg' src= '${objElement.imageUrl}' alt = 'Imagen de ${objElement.name}'>
+                        <p class = 'characterName'>${objElement.name}</p>
                     </div>                
                 </li>`
 
     } else {
         html = `<li>
                     <div class = 'characterContainer js__characterContainer' data-id = '${objElement._id}'>
-                        <img src= 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney' alt = 'Imagen de ${objElement.name}'>
-                        <p>${objElement.name}</p>
+                        <img class = 'characterImg' src= 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney' alt = 'Imagen de ${objElement.name}'>
+                        <p class = 'characterName'>${objElement.name}</p>
+                    </div>                
+                </li>`
+    }
+
+    
+    return html;
+}
+
+function displayFavouriteCharacter(objElement){
+    let html = '';
+
+    if(objElement.imageUrl !== undefined){
+        html = `<li>
+                    <div class = 'favouriteContainer js__characterContainer selected' data-id = '${objElement._id}'>
+                        <img class = 'favouriteImg' src= '${objElement.imageUrl}' alt = 'Imagen de ${objElement.name}'>
+                        <p class = 'favouriteName'>${objElement.name}</p>
+                    </div>                
+                </li>`
+
+    } else {
+        html = `<li>
+                    <div class = 'favouriteContainer js__characterContainer selected' data-id = '${objElement._id}'>
+                        <img class = 'favouriteImg' src= 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney' alt = 'Imagen de ${objElement.name}'>
+                        <p class = 'favouriteName'>${objElement.name}</p>
                     </div>                
                 </li>`
     }
@@ -58,7 +82,7 @@ function displayAllFavouriteCharacters(objectList){
     let html = '';
 
     for (const objElement of objectList){
-        html += displayCharacter(objElement);        
+        html += displayFavouriteCharacter(objElement);        
     }
 
     favouritesList.innerHTML = html;
@@ -86,7 +110,7 @@ function handleEachfavouriteCharacter(ev){
     
     displayAllFavouriteCharacters(favouritesData);
 
-    ev.currentTarget.classList.toggle('selected');
+    //ev.currentTarget.classList.toggle('selected');
 }
 
 

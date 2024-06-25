@@ -1,0 +1,62 @@
+.sectionWrap{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.charactersSection{
+    width: 50%;
+
+    @media (min-width:768px) {
+        width: 70%;
+    }
+}
+
+.charactersList{
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @media (min-width:768px) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;    
+    }
+}
+
+.characterContainer{
+    width: 90%;
+    height: 350px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 8px 8px;
+    margin-block: 5px;
+    margin-inline: auto;
+
+    box-shadow: 5px 5px 26px rgba(0,0,0,0.3);
+}
+
+.characterImg{
+    width: 100%;
+    height: 90%;
+
+    object-fit: cover;
+}
+
+.characterName{
+    font-weight: 800;
+
+    color: #333;
+    opacity: 0.8;
+
+    padding-top: 5px;
+}
+
+.charactersTitle{
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    color: $disney-blue;
+}

@@ -2,19 +2,12 @@
 @import 'core/reset';
 @import 'layout/header';
 @import 'layout/searchBox';
+@import 'layout/charactersSection';
+@import 'layout/favouritesSection';
 
 
-.selected{
-    background-color: aqua;
-}
 
-.sectionWrap{
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-}
 
-.charactersSection{
-    width: 70%;
-}
+
+
 
