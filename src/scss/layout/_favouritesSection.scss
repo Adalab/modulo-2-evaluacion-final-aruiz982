@@ -1,4 +1,4 @@
-.favouritesSection{
+.favourites__section{
     width: 50%;
 
     @media (min-width:768px) {
@@ -6,12 +6,14 @@
     }
 }
 
-.favouritesList{
+.favourites__list{
     display: grid;
     grid-template-columns: 1fr;
 }
 
-.favouriteContainer{
+.favourite__container{
+    position: relative;
+
     width: 90%;
     height: 350px;
 
@@ -22,14 +24,14 @@
     box-shadow: 5px 5px 26px rgba(0,0,0,0.3);
 }
 
-.favouriteImg{
+.favourite__img{
     width: 100%;
     height: 90%;
 
     object-fit: cover;
 }
 
-.favouriteName{
+.favourite__name{
     font-weight: 800;
 
     color: #333;
@@ -40,7 +42,7 @@
     text-align: center;
 }
 
-.favouritesTitle{
+.favourites__title{
     text-align: center;
 
     margin-bottom: 20px;
@@ -50,4 +52,18 @@
 
 .selected{
     background-color: rgba($color: $disney-blue, $alpha: 0.2);
+}
+
+//Para el icono que cierra
+.closing__favourite__container{
+    position: absolute;
+
+    margin-left: 5px;
+    margin-top: 5px;
+
+    color: #fff;
+    text-shadow: 1px 1px 2px #000;
+    font-weight: 600;
+
+    cursor: pointer;
 }

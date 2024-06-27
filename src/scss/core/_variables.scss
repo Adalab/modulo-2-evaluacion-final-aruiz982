@@ -1,13 +1,15 @@
-// fonts
+:root {
+  font-family: 'Roboto', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  font-size: 16px;
+
+  scroll-behavior: smooth;
+}
+
+// Colores
 $disney-blue: #113CCF;
 
-:root {
-    font-family: 'Roboto', sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-  
-    font-size: 16px;
 
-    scroll-behavior: smooth;
-  }

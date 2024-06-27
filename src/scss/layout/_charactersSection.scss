@@ -1,10 +1,10 @@
-.sectionWrap{
+.section__wrap{
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
 }
 
-.charactersSection{
+.characters__section{
     width: 50%;
 
     @media (min-width:768px) {
@@ -12,7 +12,7 @@
     }
 }
 
-.charactersList{
+.characters__list{
     display: grid;
     grid-template-columns: 1fr;
 
@@ -22,7 +22,7 @@
     }
 }
 
-.characterContainer{
+.character__container{
     width: 90%;
     height: 350px;
 
@@ -37,14 +37,14 @@
     box-shadow: 5px 5px 26px rgba(0,0,0,0.3);
 }
 
-.characterImg{
+.character__img{
     width: 100%;
     height: 90%;
 
     object-fit: cover;
 }
 
-.characterName{
+.character__name{
     font-weight: 800;
 
     color: #333;
@@ -53,7 +53,7 @@
     padding-top: 5px;
 }
 
-.charactersTitle{
+.characters__title{
     text-align: center;
 
     margin-bottom: 20px;
