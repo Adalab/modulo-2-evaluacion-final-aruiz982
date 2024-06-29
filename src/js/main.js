@@ -6,6 +6,7 @@ const characterInput = document.querySelector('.js__characterInput');
 const characterBtn = document.querySelector('.js__characterBtn');
 const characterList = document.querySelector('.js__characterList');
 const favouritesList = document.querySelector('.js__favouritesList');
+const favesBtn = document.querySelector('.js__characterBtnFaves');
 
 //Datos
 
@@ -46,7 +47,7 @@ function displayFavouriteCharacter(objElement){
                     <div class = 'favourite__container js__characterContainer selected' data-id = '${objElement._id}'>
                         <p class = 'closing__favourite__container js__closingFavouriteContainer' data-id = '${objElement._id}'>X</p>
                         <img class = 'favourite__img' src= '${objElement.imageUrl}' alt = 'Imagen de ${objElement.name}'>
-                        <p class = 'favourite__name'>${objElement.name}</p>
+                        <a href = '${objElement.sourceUrl}'><span class = 'favourite__name'>${objElement.name}</span></a>
                     </div>                
                 </li>`
 
@@ -55,7 +56,7 @@ function displayFavouriteCharacter(objElement){
                     <div class = 'favourite__container js__characterContainer selected' data-id = '${objElement._id}'>
                         <div class = 'closing__favourite__container js__closingFavouriteContainer' data-id = '${objElement._id}'>X</div>
                         <img class = 'favourite__img' src= 'https://via.placeholder.com/210x295/ffffff/555555/?text=Disney' alt = 'Imagen de ${objElement.name}'>
-                        <p class = 'favourite__name'>${objElement.name}</p>
+                        <a href = '${objElement.sourceUrl}'><span class = 'favourite__name'>${objElement.name}</span></a>
                     </div>                
                 </li>`
     }
@@ -149,6 +150,8 @@ function handleRemoveFavourite (ev){
 
 characterBtn.addEventListener('click', filterCharacter);
 
+favesBtn.addEventListener('click', displayFaves);
+
 
 
 //Código cuando carga la página
@@ -167,6 +170,12 @@ if( favsFromLS !== null ) {
   favouritesData = favsFromLS;
 
   displayAllFavouriteCharacters(favouritesData);
+}
+
+function displayFaves(){
+    for (const faveCharacter of favouritesData){
+        console.log(faveCharacter.name);
+    }
 }
 
 
